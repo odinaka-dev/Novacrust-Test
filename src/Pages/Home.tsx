@@ -19,7 +19,7 @@ const PaymentModal = () => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent
-        className="font-outfit w-full max-w-md sm:max-w-lg lg:max-w-xl p-6 sm:p-8 rounded-2xl bg-white shadow-lg"
+        className="font-outfit w-full max-w-md sm:max-w-lg lg:max-w-xl p-6 sm:p-8 sm:py-12 sm:pb-16 rounded-2xl bg-white shadow-lg"
         onPointerDownOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => e.preventDefault()}
       >
@@ -27,29 +27,17 @@ const PaymentModal = () => {
           {/* Tabs */}
           <div className="flex justify-center items-center">
             <TabsList className="flex justify-center gap-2 bg-muted p-1 rounded-full mb-6">
-              <TabsTrigger
-                value="account"
-                className="rounded-full px-5 py-2 text-sm font-medium transition-all bg-gray-100 text-gray-700
-             data-[state=active]:bg-[#013941] data-[state=active]:text-white"
-              >
-                Crypto to cash
-              </TabsTrigger>
+              <TabsTrigger value="email">Crypto to cash</TabsTrigger>
 
-              <TabsTrigger
-                value="password"
-                className="rounded-full px-5 py-2 text-sm font-medium transition-all text-gray-600
-             data-[state=active]:bg-[#013941] data-[state=active]:text-white"
-              >
-                Cash to crypto
-              </TabsTrigger>
+              <TabsTrigger value="success">Cash to crypto</TabsTrigger>
             </TabsList>
           </div>
 
           {/* Tabs content */}
-          <TabsContent value="account">
+          <TabsContent value="email">
             <StepOne />
           </TabsContent>
-          <TabsContent value="password">
+          <TabsContent value="success">
             <StepTwo />
           </TabsContent>
         </Tabs>
@@ -70,7 +58,7 @@ const StepOne = () => {
           <p>Enter your email and we'll let you know the moment it's live.</p>
         </div>
         {/* Email input */}
-        <div className="grid w-full gap-3 my-6 mb-9">
+        <div className="grid w-full gap-3 my-6">
           <Label
             htmlFor="email"
             className="text-[#013941] font-medium text-[16px]"
@@ -103,7 +91,7 @@ const StepTwo = () => {
         </div>
       </DialogTitle>
       <DialogDescription className="text-gray-700">
-        <div className="flex flex-col items-center justify-center gap-9 my-12 w-full">
+        <div className="flex flex-col items-center justify-center gap-9 my-8 w-full">
           <img src={NovacrustImage?.Success} alt="" />
           <div className="text-center w-full">
             <p className="text-[24px] font-medium text-[#013941]">
